@@ -65,7 +65,7 @@ class playerController {
     const player = new Players(req.body);
     player
       .save()
-      .then(() => {
+      .then((player) => {
         res.redirect("/players");
       })
       .catch(next);
@@ -83,6 +83,13 @@ class playerController {
       })
       .catch(next);
   }
+
+  formCreate(req, res, next) {
+    res.render("createPlayers", {title: "Create form",
+    clubList: clubData,
+    positionList: positions, });
+  }
+
   edit(req, res, next) {
     Players.updateOne({ _id: req.params.playerId }, req.body)
       .then(() => {

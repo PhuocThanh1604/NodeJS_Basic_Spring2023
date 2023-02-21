@@ -17,4 +17,6 @@ playerRouter.route("/deletePlayer/:playerId").get(playerController.delete);
 
 playerRouter.route("/profile/:playerId").get(playerController.getProfile);
 
+playerRouter.route("/create-form").get(playerController.formCreate);
+
 module.exports = playerRouter;
